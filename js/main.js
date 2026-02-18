@@ -206,10 +206,10 @@ function createSkeletonCards(count) {
     html += `
       <div class="disco-card fade-in visible ${delayClass}">
         <div class="thumbnail">
-          <div class="skeleton-pulse" style="position:absolute;inset:0;background:linear-gradient(90deg,var(--bg-card) 25%,var(--bg-card-hover) 50%,var(--bg-card) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;"></div>
+          <div class="skeleton-pulse" style="position:absolute;inset:0;background:linear-gradient(90deg,var(--bg-glass) 25%,var(--bg-glass-hover) 50%,var(--bg-glass) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;"></div>
         </div>
         <div class="card-info">
-          <div style="height:1rem;width:80%;background:var(--bg-card-hover);border-radius:4px;margin-bottom:0.5rem;"></div>
+          <div style="height:1rem;width:80%;background:var(--bg-glass-hover);border-radius:4px;margin-bottom:0.5rem;"></div>
           <div style="height:0.75rem;width:40%;background:var(--border);border-radius:4px;"></div>
         </div>
       </div>
