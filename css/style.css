@@ -384,6 +384,25 @@ ul {
   border: none;
 }
 
+.video-embed--lazy {
+  cursor: pointer;
+}
+
+.video-embed-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.15);
+  transition: background 0.2s;
+}
+
+.video-embed--lazy:hover .video-embed-play,
+.video-embed--lazy:focus-visible .video-embed-play {
+  background: rgba(0, 0, 0, 0.35);
+}
+
 .video-caption {
   margin-top: 1rem;
   text-align: center;

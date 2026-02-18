@@ -112,6 +112,34 @@ async function fetchPlaylistItems() {
   return items;
 }
 
+/* --- キャッシュ付きプレイリスト取得（30分TTL） --- */
+const CACHE_KEY = 'yt_playlist_cache';
+const CACHE_TTL_MS = 30 * 60 * 1000;
+
+async function fetchPlaylistItemsCached() {
+  try {
+    const cached = localStorage.getItem(CACHE_KEY);
+    if (cached) {
+      const { data, timestamp } = JSON.parse(cached);
+      if (Date.now() - timestamp < CACHE_TTL_MS) {
+        return data;
+      }
+    }
+  } catch {
+    /* キャッシュ読み取り失敗時は無視してAPI呼び出しへ */
+  }
+
+  const items = await fetchPlaylistItems();
+
+  try {
+    localStorage.setItem(CACHE_KEY, JSON.stringify({ data: items, timestamp: Date.now() }));
+  } catch {
+    /* ストレージ書き込み失敗は無視 */
+  }
+
+  return items;
+}
+
 /* --- 日付フォーマット --- */
 function formatDate(isoString) {
   const d = new Date(isoString);
@@ -157,7 +185,7 @@ function createVideoCard(item, index) {
     thumbEl.innerHTML = `
       <div style="position:absolute;inset:0;">
         <iframe
-          src="https://www.youtube.com/embed/${videoId}?autoplay=1"
+          src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1"
           title="${title}"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
@@ -201,7 +229,7 @@ async function loadDiscography(gridEl) {
   }
 
   try {
-    const items = await fetchPlaylistItems();
+    const items = await fetchPlaylistItemsCached();
 
     gridEl.innerHTML = '';
 
@@ -233,7 +261,7 @@ function showFallbackEmbed(gridEl) {
     <div class="fade-in visible" style="max-width:800px;margin:0 auto;">
       <div class="video-embed">
         <iframe
-          src="https://www.youtube.com/embed/videoseries?list=${YT_CONFIG.playlistId}"
+          src="https://www.youtube-nocookie.com/embed/videoseries?list=${YT_CONFIG.playlistId}"
           title="衣澄はな - オリジナル曲プレイリスト"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
@@ -243,7 +271,7 @@ function showFallbackEmbed(gridEl) {
   `;
 }
 
-/* --- Top ページ: 最新動画を読み込み --- */
+/* --- Top ページ: 最新動画を読み込み（サムネイルクリックで展開） --- */
 async function loadLatestVideo(container) {
   if (YT_CONFIG.apiKey === 'YOUR_API_KEY_HERE') {
     showLatestFallback(container);
@@ -251,7 +279,7 @@ async function loadLatestVideo(container) {
   }
 
   try {
-    const items = await fetchPlaylistItems();
+    const items = await fetchPlaylistItemsCached();
     if (items.length === 0) {
       showLatestFallback(container);
       return;
@@ -259,20 +287,44 @@ async function loadLatestVideo(container) {
 
     const latest = items[0];
     const videoId = latest.contentDetails?.videoId || latest.snippet.resourceId?.videoId;
+    const title = latest.snippet.title;
+    const thumbnail =
+      latest.snippet.thumbnails?.maxres?.url ||
+      latest.snippet.thumbnails?.high?.url ||
+      latest.snippet.thumbnails?.medium?.url ||
+      latest.snippet.thumbnails?.default?.url ||
+      '';
 
     container.innerHTML = `
-      <div class="video-embed fade-in">
-        <iframe
-          src="https://www.youtube.com/embed/${videoId}"
-          title="${latest.snippet.title}"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+      <div class="video-embed video-embed--lazy fade-in" id="latest-video-thumb" role="button" tabindex="0" aria-label="${title} を再生">
+        <img src="${thumbnail}" alt="${title}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+        <div class="video-embed-play">
+          <svg viewBox="0 0 68 48" width="68" height="48">
+            <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.64 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/>
+            <path d="M45 24L27 14v20" fill="#fff"/>
+          </svg>
+        </div>
       </div>
-      <p class="video-caption fade-in fade-in-delay-1">
-        ${latest.snippet.title}
-      </p>
+      <p class="video-caption fade-in fade-in-delay-1">${title}</p>
     `;
+
+    const thumbEl = document.getElementById('latest-video-thumb');
+    const playHandler = () => {
+      thumbEl.outerHTML = `
+        <div class="video-embed fade-in visible">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1"
+            title="${title}"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      `;
+    };
+    thumbEl.addEventListener('click', playHandler);
+    thumbEl.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); playHandler(); }
+    });
 
     initScrollAnimation();
   } catch {
@@ -284,7 +336,7 @@ function showLatestFallback(container) {
   container.innerHTML = `
     <div class="video-embed fade-in visible">
       <iframe
-        src="https://www.youtube.com/embed/videoseries?list=${YT_CONFIG.playlistId}"
+        src="https://www.youtube-nocookie.com/embed/videoseries?list=${YT_CONFIG.playlistId}"
         title="衣澄はな - 最新動画"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
