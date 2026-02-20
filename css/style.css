@@ -262,6 +262,13 @@ ul { list-style: none; }
   overflow: hidden;
 }
 
+.hero-content .subtitle,
+.hero-content h1,
+.hero-content .description,
+.hero-scroll {
+  visibility: hidden;
+}
+
 .hero-bg {
   position: absolute;
   inset: 0;

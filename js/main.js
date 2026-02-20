@@ -11,10 +11,14 @@ const YT_CONFIG = {
   maxResults: 50,
 };
 
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 document.addEventListener('DOMContentLoaded', () => {
   initHeader();
   initScrollAnimation();
   initMobileMenu();
+  initHeroAnimation();
+  initParallax();
 
   const discoGrid = document.getElementById('disco-grid');
   if (discoGrid) {
@@ -85,6 +89,183 @@ function initMobileMenu() {
       nav.classList.remove('open');
       document.body.style.overflow = '';
     });
+  });
+}
+
+/* --- Hero entrance animation (GSAP) --- */
+function initHeroAnimation() {
+  const subtitle = document.querySelector('.hero-content .subtitle');
+  const h1 = document.querySelector('.hero-content h1');
+  const description = document.querySelector('.hero-content .description');
+  const scrollIndicator = document.querySelector('.hero-scroll');
+
+  if (!subtitle || !h1) return;
+
+  const targets = [subtitle, h1, description, scrollIndicator].filter(Boolean);
+
+  if (prefersReducedMotion) {
+    targets.forEach((el) => {
+      el.style.visibility = 'visible';
+    });
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const tl = gsap.timeline({ delay: 0.3 });
+
+  tl.fromTo(
+    subtitle,
+    { opacity: 0, y: 30, visibility: 'hidden' },
+    { opacity: 1, y: 0, visibility: 'visible', duration: 0.8, ease: 'power3.out' }
+  )
+    .fromTo(
+      h1,
+      { opacity: 0, y: 50, visibility: 'hidden' },
+      { opacity: 1, y: 0, visibility: 'visible', duration: 1, ease: 'power3.out' },
+      '-=0.4'
+    )
+    .fromTo(
+      description,
+      { opacity: 0, y: 30, visibility: 'hidden' },
+      { opacity: 1, y: 0, visibility: 'visible', duration: 0.8, ease: 'power3.out' },
+      '-=0.5'
+    )
+    .fromTo(
+      scrollIndicator,
+      { opacity: 0, visibility: 'hidden' },
+      { opacity: 0.7, visibility: 'visible', duration: 1, ease: 'power2.out' },
+      '-=0.3'
+    );
+}
+
+/* --- Parallax scroll effects (GSAP ScrollTrigger) --- */
+function initParallax() {
+  if (prefersReducedMotion) return;
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const heroBg = document.querySelector('.hero-bg');
+  const heroContent = document.querySelector('.hero-content');
+  const heroScroll = document.querySelector('.hero-scroll');
+
+  const isMobile = window.innerWidth < 768;
+
+  if (heroBg) {
+    gsap.to(heroBg, {
+      yPercent: isMobile ? 15 : 30,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+      },
+    });
+  }
+
+  if (heroContent) {
+    gsap.to(heroContent, {
+      y: isMobile ? 60 : 120,
+      opacity: 0,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: '80% top',
+        scrub: true,
+      },
+    });
+  }
+
+  if (heroScroll) {
+    gsap.to(heroScroll, {
+      opacity: 0,
+      y: 20,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero',
+        start: '10% top',
+        end: '30% top',
+        scrub: true,
+      },
+    });
+  }
+
+  if (isMobile) return;
+
+  document.querySelectorAll('.section').forEach((section) => {
+    const title = section.querySelector('.section-title');
+    const heading = section.querySelector('.section-heading');
+
+    if (title) {
+      gsap.fromTo(
+        title,
+        { y: 30 },
+        {
+          y: -10,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 80%',
+            end: 'top 20%',
+            scrub: true,
+          },
+        }
+      );
+    }
+
+    if (heading) {
+      gsap.fromTo(
+        heading,
+        { y: 40 },
+        {
+          y: -15,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 80%',
+            end: 'top 20%',
+            scrub: true,
+          },
+        }
+      );
+    }
+  });
+
+  document.querySelectorAll('.about-detail-item').forEach((card, i) => {
+    gsap.fromTo(
+      card,
+      { y: 20 + i * 10 },
+      {
+        y: -(10 + i * 5),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 90%',
+          end: 'top 30%',
+          scrub: true,
+        },
+      }
+    );
+  });
+
+  document.querySelectorAll('.sns-link').forEach((link, i) => {
+    gsap.fromTo(
+      link,
+      { y: 20 + i * 5 },
+      {
+        y: -10,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.sns-links',
+          start: 'top 90%',
+          end: 'top 40%',
+          scrub: true,
+        },
+      }
+    );
   });
 }
 
