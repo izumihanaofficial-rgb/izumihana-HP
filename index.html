@@ -5,157 +5,233 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>衣澄はな | Vocaloid Producer</title>
   <meta name="description" content="衣澄はな（いずみはな）- ボーカロイドプロデューサーの公式サイト。オールジャンルの楽曲制作を行っています。">
+  <meta property="og:image" content="img/IzumiHana_HP_FV.png">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Shippori+Mincho:wght@400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="ambient-glow"></div>
 
   <!-- ===== Header ===== -->
   <header class="header">
     <div class="container">
       <a href="index.html" class="logo">Izumi<span>.</span>Hana</a>
-      <nav>
+      <nav aria-label="メイン">
         <ul class="nav-list">
-          <li><a href="index.html" class="active">Top</a></li>
-          <li><a href="discography.html">Discography</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html" class="navlink active" aria-current="page">Top</a></li>
+          <li><a href="discography.html" class="navlink">Discography</a></li>
+          <li><a href="request.html" class="navlink">Request</a></li>
+          <li><a href="contact.html" class="navlink">Contact</a></li>
         </ul>
       </nav>
-      <button class="menu-toggle" aria-label="メニューを開く">
-        <span></span>
-        <span></span>
-        <span></span>
+      <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <!-- ===== Hero / FV ===== -->
-  <section class="hero">
-    <div class="hero-bg" style="background-image: url('img/IzumiHana_HP_FV.png');"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <p class="subtitle">Vocaloid Producer</p>
-      <h1>Izumi Hana</h1>
-      <p class="description">世界に花咲く、音楽を—。</p>
-    </div>
-    <div class="hero-scroll">
-      <div class="scroll-icon"></div>
-      <span>Scroll</span>
-    </div>
-  </section>
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="petals" data-count="8" aria-hidden="true"></div>
 
-  <!-- ===== About ===== -->
-  <section class="section" id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-text fade-in">
-          <p class="section-title">About</p>
-          <h2 class="section-heading">衣澄はな</h2>
-          <div class="accent-line"></div>
-          <p>
-            ボーカロイドプロデューサーとして活動中。<br>
-            オールジャンルの楽曲制作を手がけ、<br>
-            さまざまな合成音声を用いて音楽を届けています。
-          </p>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="hero-eyebrow rise" style="animation-delay:.2s">Vocaloid Producer</p>
+          <h1 class="hero-title rise" style="animation-delay:.4s">Izumi<br>Hana</h1>
+          <p class="hero-name rise" style="animation-delay:.7s">衣澄はな</p>
+          <p class="hero-tagline rise" style="animation-delay:1s">世界に花咲く、音楽を—。</p>
+          <div class="hero-actions rise" style="animation-delay:1.3s">
+            <a href="#latest" class="btn btn-fill">
+              <svg width="12" height="14" viewBox="0 0 12 14" aria-hidden="true"><path d="M1 1l10 6-10 6z"/></svg>
+              Listen
+            </a>
+            <a href="discography.html" class="btn btn-line">Discography</a>
+          </div>
         </div>
-        <div class="about-details fade-in fade-in-delay-2">
-          <div class="about-detail-item">
-            <div class="label">Name</div>
-            <div class="value">衣澄はな（いずみはな）</div>
+
+        <div class="hero-visual">
+          <span class="ring" aria-hidden="true"></span>
+          <span class="ring" aria-hidden="true"></span>
+          <span class="ring" aria-hidden="true"></span>
+
+          <svg class="orbit spin hide-sm" viewBox="0 0 560 560" aria-hidden="true">
+            <circle cx="280" cy="280" r="276" fill="none" stroke="rgba(47,111,109,.28)" stroke-width="1" stroke-dasharray="1 9" stroke-linecap="round"/>
+            <circle cx="280" cy="4" r="4" fill="#8A5052" opacity=".55"/>
+          </svg>
+
+          <div class="orb">
+            <img src="img/IzumiHana_HP_FV.png" alt="衣澄はなのイラスト。ヘッドホンをつけた横顔の少女">
           </div>
-          <div class="about-detail-item">
-            <div class="label">Title</div>
-            <div class="value">ボーカロイドプロデューサー</div>
-          </div>
-          <div class="about-detail-item">
-            <div class="label">Genre</div>
-            <div class="value">オールジャンル</div>
-          </div>
-          <div class="about-detail-item">
-            <div class="label">Vocal Sources</div>
-            <div class="value">
-              <div class="tags-wrapper">
+
+          <svg class="flower-hero spin-r" viewBox="-100 -100 200 200" aria-hidden="true">
+            <g fill="rgba(233,211,210,.35)" stroke="#2F6F6D" stroke-width=".9">
+              <path class="draw" pathLength="1" d="M0 -8C20 -30 20 -70 0 -92C-20 -70 -20 -30 0 -8Z" style="animation-delay:.6s"/>
+              <path class="draw" pathLength="1" d="M0 -8C20 -30 20 -70 0 -92C-20 -70 -20 -30 0 -8Z" transform="rotate(60)" style="animation-delay:.8s"/>
+              <path class="draw" pathLength="1" d="M0 -8C20 -30 20 -70 0 -92C-20 -70 -20 -30 0 -8Z" transform="rotate(120)" style="animation-delay:1s"/>
+              <path class="draw" pathLength="1" d="M0 -8C20 -30 20 -70 0 -92C-20 -70 -20 -30 0 -8Z" transform="rotate(180)" style="animation-delay:1.2s"/>
+              <path class="draw" pathLength="1" d="M0 -8C20 -30 20 -70 0 -92C-20 -70 -20 -30 0 -8Z" transform="rotate(240)" style="animation-delay:1.4s"/>
+              <path class="draw" pathLength="1" d="M0 -8C20 -30 20 -70 0 -92C-20 -70 -20 -30 0 -8Z" transform="rotate(300)" style="animation-delay:1.6s"/>
+            </g>
+            <g fill="none" stroke="#8A5052" stroke-width=".7" opacity=".7">
+              <path class="draw" pathLength="1" d="M0 -6C10 -18 10 -40 0 -52C-10 -40 -10 -18 0 -6Z" transform="rotate(30)" style="animation-delay:1.8s"/>
+              <path class="draw" pathLength="1" d="M0 -6C10 -18 10 -40 0 -52C-10 -40 -10 -18 0 -6Z" transform="rotate(90)" style="animation-delay:1.9s"/>
+              <path class="draw" pathLength="1" d="M0 -6C10 -18 10 -40 0 -52C-10 -40 -10 -18 0 -6Z" transform="rotate(150)" style="animation-delay:2s"/>
+              <path class="draw" pathLength="1" d="M0 -6C10 -18 10 -40 0 -52C-10 -40 -10 -18 0 -6Z" transform="rotate(210)" style="animation-delay:2.1s"/>
+              <path class="draw" pathLength="1" d="M0 -6C10 -18 10 -40 0 -52C-10 -40 -10 -18 0 -6Z" transform="rotate(270)" style="animation-delay:2.2s"/>
+              <path class="draw" pathLength="1" d="M0 -6C10 -18 10 -40 0 -52C-10 -40 -10 -18 0 -6Z" transform="rotate(330)" style="animation-delay:2.3s"/>
+            </g>
+            <circle r="6" fill="#8A5052" opacity=".75"/>
+          </svg>
+
+          <svg class="flower-small spin hide-sm" viewBox="-50 -50 100 100" aria-hidden="true">
+            <g fill="rgba(207,228,225,.6)" stroke="#2F6F6D" stroke-width="1">
+              <ellipse cx="0" cy="-24" rx="12" ry="22"/>
+              <ellipse cx="0" cy="-24" rx="12" ry="22" transform="rotate(72)"/>
+              <ellipse cx="0" cy="-24" rx="12" ry="22" transform="rotate(144)"/>
+              <ellipse cx="0" cy="-24" rx="12" ry="22" transform="rotate(216)"/>
+              <ellipse cx="0" cy="-24" rx="12" ry="22" transform="rotate(288)"/>
+            </g>
+            <circle r="5" fill="#fff" stroke="#8A5052"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- water drop & pond -->
+      <div class="pond" aria-hidden="true">
+        <span class="drop"></span>
+        <span class="splash" style="left:calc(50% - 16px);width:4px;height:4px"></span>
+        <span class="splash" style="left:calc(50% + 12px);width:3px;height:3px;animation-delay:.05s"></span>
+        <span class="pring"></span>
+        <span class="pring d2"></span>
+        <span class="pring d3"></span>
+        <span class="scroll-label">Scroll</span>
+      </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section class="section section--soft" id="about">
+      <svg class="about-flower spin hide-sm" viewBox="-100 -100 200 200" aria-hidden="true">
+        <g fill="none" stroke="rgba(47,111,109,.25)" stroke-width=".5">
+          <path d="M0 -4C24 -30 24 -70 0 -96C-24 -70 -24 -30 0 -4Z"/>
+          <path d="M0 -4C24 -30 24 -70 0 -96C-24 -70 -24 -30 0 -4Z" transform="rotate(45)"/>
+          <path d="M0 -4C24 -30 24 -70 0 -96C-24 -70 -24 -30 0 -4Z" transform="rotate(90)"/>
+          <path d="M0 -4C24 -30 24 -70 0 -96C-24 -70 -24 -30 0 -4Z" transform="rotate(135)"/>
+          <path d="M0 -4C24 -30 24 -70 0 -96C-24 -70 -24 -30 0 -4Z" transform="rotate(180)"/>
+          <path d="M0 -4C24 -30 24 -70 0 -96C-24 -70 -24 -30 0 -4Z" transform="rotate(225)"/>
+          <path d="M0 -4C24 -30 24 -70 0 -96C-24 -70 -24 -30 0 -4Z" transform="rotate(270)"/>
+          <path d="M0 -4C24 -30 24 -70 0 -96C-24 -70 -24 -30 0 -4Z" transform="rotate(315)"/>
+        </g>
+      </svg>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p class="section-label">— About</p>
+          <h2 class="about-name">衣澄はな</h2>
+          <p class="about-kana">いずみ はな</p>
+          <p class="about-desc">ボーカロイドプロデューサーとして活動中。<br>オールジャンルの楽曲制作を手がけ、<br>さまざまな合成音声を用いて音楽を届けています。</p>
+        </div>
+        <div class="about-card reveal" style="transition-delay:.15s">
+          <dl>
+            <div class="detail-row"><dt>Name</dt><dd>衣澄はな（いずみはな）</dd></div>
+            <div class="detail-row"><dt>Title</dt><dd>ボーカロイドプロデューサー</dd></div>
+            <div class="detail-row"><dt>Genre</dt><dd>オールジャンル</dd></div>
+            <div class="detail-row">
+              <dt>Vocal Sources</dt>
+              <dd class="tags">
                 <span class="tag">宮舞モカ</span>
                 <span class="tag">重音テト</span>
                 <span class="tag">初音ミク</span>
                 <span class="tag">小春六花</span>
                 <span class="tag">闇音レンリ</span>
                 <span class="tag">無來</span>
-              </div>
+              </dd>
             </div>
-          </div>
+          </dl>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== Latest Music ===== -->
-  <section class="section section--alt" id="latest">
-    <div class="container">
-      <div class="latest-music-wrapper">
-        <div class="fade-in" style="text-align: center;">
-          <p class="section-title">Latest Music</p>
-          <h2 class="section-heading">最新楽曲</h2>
-        </div>
+    <!-- ===== Latest Music ===== -->
+    <section class="section latest" id="latest">
+      <div class="latest-rings" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="latest-inner">
+        <p class="section-label reveal">— Latest Music</p>
+        <h2 class="section-heading reveal">最新楽曲</h2>
         <!-- JS が YouTube API からプレイリストの最新動画を取得して埋め込みます -->
-        <div id="latest-video"></div>
+        <div id="latest-video" class="reveal">
+          <div class="video-embed skeleton"></div>
+        </div>
+        <a href="discography.html" class="btn btn-line reveal" style="margin-top:28px">すべての楽曲を見る</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== SNS Links ===== -->
-  <section class="section" id="sns">
-    <div class="container" style="text-align: center;">
-      <div class="fade-in">
-        <p class="section-title">Follow</p>
-        <h2 class="section-heading">SNS</h2>
+    <!-- ===== Request ===== -->
+    <section class="cta-wrap">
+      <div class="cta-band reveal">
+        <svg class="cta-flower spin" viewBox="-100 -100 200 200" aria-hidden="true">
+          <g fill="rgba(255,255,255,.7)" stroke="rgba(47,111,109,.3)" stroke-width=".6">
+            <path d="M0 -6C22 -30 22 -70 0 -94C-22 -70 -22 -30 0 -6Z"/>
+            <path d="M0 -6C22 -30 22 -70 0 -94C-22 -70 -22 -30 0 -6Z" transform="rotate(72)"/>
+            <path d="M0 -6C22 -30 22 -70 0 -94C-22 -70 -22 -30 0 -6Z" transform="rotate(144)"/>
+            <path d="M0 -6C22 -30 22 -70 0 -94C-22 -70 -22 -30 0 -6Z" transform="rotate(216)"/>
+            <path d="M0 -6C22 -30 22 -70 0 -94C-22 -70 -22 -30 0 -6Z" transform="rotate(288)"/>
+          </g>
+        </svg>
+        <div class="cta-text">
+          <p class="section-label" style="font-size:20px">— Request</p>
+          <h2>楽曲制作のご依頼</h2>
+          <p>楽曲制作のご依頼、コラボレーションのご相談など、お気軽にご連絡ください。</p>
+        </div>
+        <a href="request.html" class="btn btn-fill">プラン・料金を見る →</a>
       </div>
-      <div class="sns-links fade-in fade-in-delay-2">
-        <!-- YouTube -->
-        <a href="https://www.youtube.com/channel/UCELzzvRnGaEkKQrtYte62rw" target="_blank" rel="noopener" class="sns-link" aria-label="YouTube">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-          </svg>
-        </a>
-        <!-- niconico -->
-        <a href="https://www.nicovideo.jp/user/130683542" target="_blank" rel="noopener" class="sns-link" aria-label="niconico">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M.4787 7.534l3.8213-3.534h4.7574l-3.8213 3.534zm7.0213-3.534h4.7574l-3.8213 3.534h-4.7574zm12.1574 4.534v9.932c0 1.392-1.1293 2.534-2.5213 2.534h-10.2722c-1.392 0-2.5213-1.142-2.5213-2.534v-9.932zm-4.85 4.57l-3.4 1.88v-3.76zm-2.607-5.57h4.7574l-3.8213 3.534h-4.7574zm5.7574 0h4.1213l-3.8213 3.534h-4.0787z"/>
-          </svg>
-        </a>
-        <!-- X (Twitter) -->
-        <a href="https://x.com/izumi_hana_p" target="_blank" rel="noopener" class="sns-link" aria-label="X">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-          </svg>
-        </a>
+    </section>
+
+    <!-- ===== SNS ===== -->
+    <section class="sns-section" id="sns">
+      <p class="section-label reveal">— Follow</p>
+      <h2 class="section-heading reveal">SNS</h2>
+      <div class="sns-list reveal">
+        <div class="sns-item">
+          <a href="https://www.youtube.com/channel/UCELzzvRnGaEkKQrtYte62rw" target="_blank" rel="noopener" class="sns" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <span>YouTube</span>
+        </div>
+        <div class="sns-item">
+          <a href="https://www.nicovideo.jp/user/130683542" target="_blank" rel="noopener" class="sns" aria-label="niconico">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.4787 7.534l3.8213-3.534h4.7574l-3.8213 3.534zm7.0213-3.534h4.7574l-3.8213 3.534h-4.7574zm12.1574 4.534v9.932c0 1.392-1.1293 2.534-2.5213 2.534h-10.2722c-1.392 0-2.5213-1.142-2.5213-2.534v-9.932zm-4.85 4.57l-3.4 1.88v-3.76zm-2.607-5.57h4.7574l-3.8213 3.534h-4.7574zm5.7574 0h4.1213l-3.8213 3.534h-4.0787z"/></svg>
+          </a>
+          <span>niconico</span>
+        </div>
+        <div class="sns-item">
+          <a href="https://x.com/izumi_hana_p" target="_blank" rel="noopener" class="sns" aria-label="X">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <span>X</span>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- ===== Footer ===== -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">Izumi Hana</div>
-        <div class="footer-sns">
-          <a href="https://www.youtube.com/channel/UCELzzvRnGaEkKQrtYte62rw" target="_blank" rel="noopener" aria-label="YouTube">
-            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-          </a>
-          <a href="https://www.nicovideo.jp/user/130683542" target="_blank" rel="noopener" aria-label="niconico">
-            <svg viewBox="0 0 24 24"><path d="M.4787 7.534l3.8213-3.534h4.7574l-3.8213 3.534zm7.0213-3.534h4.7574l-3.8213 3.534h-4.7574zm12.1574 4.534v9.932c0 1.392-1.1293 2.534-2.5213 2.534h-10.2722c-1.392 0-2.5213-1.142-2.5213-2.534v-9.932zm-4.85 4.57l-3.4 1.88v-3.76zm-2.607-5.57h4.7574l-3.8213 3.534h-4.7574zm5.7574 0h4.1213l-3.8213 3.534h-4.0787z"/></svg>
-          </a>
-          <a href="https://x.com/izumi_hana_p" target="_blank" rel="noopener" aria-label="X">
-            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-        </div>
-        <p class="footer-copy">&copy; 2026 Izumi Hana. All rights reserved.</p>
-      </div>
-    </div>
+    <svg class="footer-wave" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true">
+      <path class="shimmer" d="M0 20 C 180 0, 360 40, 540 20 S 900 0, 1080 20 S 1360 40, 1440 18" fill="none" stroke="rgba(47,111,109,.3)" stroke-width="1"/>
+      <path d="M0 26 C 200 10, 380 42, 560 26 S 920 8, 1100 26 S 1360 40, 1440 26" fill="none" stroke="rgba(138,80,82,.18)" stroke-width="1"/>
+    </svg>
+    <p class="footer-logo">Izumi<span>.</span>Hana</p>
+    <p class="footer-tag">世界に花咲く、音楽を</p>
+    <nav class="footer-nav" aria-label="フッター">
+      <a href="index.html" class="navlink">Top</a>
+      <a href="discography.html" class="navlink">Discography</a>
+      <a href="request.html" class="navlink">Request</a>
+      <a href="contact.html" class="navlink">Contact</a>
+    </nav>
+    <p class="footer-copy">&copy; 2026 Izumi Hana. All rights reserved.</p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
