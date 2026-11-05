@@ -58,8 +58,24 @@
       </div>
     </section>
 
+    <!-- ===== Discography Grid ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-label">— Music Videos</p>
+          <h2 class="section-heading">楽曲動画</h2>
+        </div>
+        <!-- JS が YouTube API からプレイリスト動画を取得して描画します -->
+        <div class="disco-grid" id="disco-grid"></div>
+
+        <div class="center reveal" style="margin-top:4rem">
+          <a href="https://www.youtube.com/playlist?list=PLdPwo6ZghcrdyuU71MXsRsxhTW453ikLs" target="_blank" rel="noopener" class="btn btn-fill">View Playlist on YouTube →</a>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== 1st Album ===== -->
-    <section class="section section--soft album" id="album">
+    <section class="section album" style="padding-top:2rem" id="album">
       <div class="album-grid">
         <div class="album-cover reveal">
             <span class="album-ring" aria-hidden="true"></span>
@@ -78,8 +94,8 @@
                 </svg>
                 <span>a first flower</span>
               </div>
-              <!-- ジャケット画像を img/a-first-flower.png に置くと表示されます -->
-              <img src="img/a-first-flower.png" alt="1stアルバム「a first flower」ジャケット" onerror="this.remove()">
+              
+              <img src="img/a-first-flower.jpg" alt="1stアルバム「a first flower」ジャケット" onerror="this.remove()">
             </div>
           </div>
         <div class="album-text reveal" style="transition-delay:.15s">
@@ -107,22 +123,6 @@
             </a>
           </div>
           <p class="album-note">Apple Music・Spotify・YouTube Music・LINE MUSIC・Amazon Music ほか各種配信サービスで配信中（ハイレゾ配信あり）</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Discography Grid ===== -->
-    <section class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="section-label">— Music Videos</p>
-          <h2 class="section-heading">楽曲動画</h2>
-        </div>
-        <!-- JS が YouTube API からプレイリスト動画を取得して描画します -->
-        <div class="disco-grid" id="disco-grid"></div>
-
-        <div class="center reveal" style="margin-top:4rem">
-          <a href="https://www.youtube.com/playlist?list=PLdPwo6ZghcrdyuU71MXsRsxhTW453ikLs" target="_blank" rel="noopener" class="btn btn-fill">View Playlist on YouTube →</a>
         </div>
       </div>
     </section>
