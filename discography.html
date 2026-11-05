@@ -58,9 +58,66 @@
       </div>
     </section>
 
+    <!-- ===== 1st Album ===== -->
+    <section class="section section--soft album" id="album">
+      <div class="album-grid">
+        <div class="album-cover reveal">
+            <span class="album-ring" aria-hidden="true"></span>
+            <span class="album-ring r2" aria-hidden="true"></span>
+            <div class="album-art">
+              <div class="album-art-ph" aria-hidden="true">
+                <svg class="spin" viewBox="-100 -100 200 200">
+                  <g fill="rgba(255,255,255,.75)" stroke="rgba(47,111,109,.45)" stroke-width=".8">
+                    <path d="M0 -6C22 -30 22 -70 0 -94C-22 -70 -22 -30 0 -6Z"/>
+                    <path d="M0 -6C22 -30 22 -70 0 -94C-22 -70 -22 -30 0 -6Z" transform="rotate(72)"/>
+                    <path d="M0 -6C22 -30 22 -70 0 -94C-22 -70 -22 -30 0 -6Z" transform="rotate(144)"/>
+                    <path d="M0 -6C22 -30 22 -70 0 -94C-22 -70 -22 -30 0 -6Z" transform="rotate(216)"/>
+                    <path d="M0 -6C22 -30 22 -70 0 -94C-22 -70 -22 -30 0 -6Z" transform="rotate(288)"/>
+                  </g>
+                  <circle r="8" fill="#8A5052" opacity=".7"/>
+                </svg>
+                <span>a first flower</span>
+              </div>
+              <!-- ジャケット画像を img/a-first-flower.png に置くと表示されます -->
+              <img src="img/a-first-flower.png" alt="1stアルバム「a first flower」ジャケット" onerror="this.remove()">
+            </div>
+          </div>
+        <div class="album-text reveal" style="transition-delay:.15s">
+          <p class="section-label">— 1st Album</p>
+          <h2 class="album-title">a first flower</h2>
+          <p class="album-meta"><span>2026.06.19 Release</span><span>12 songs</span><span>44 min</span></p>
+          <ol class="tracklist">
+              <li><span class="tr-no">01</span><span class="tr-title">komore</span><span class="tr-feat">feat. 闇音レンリ</span></li>
+              <li><span class="tr-no">02</span><span class="tr-title">A Song Against the Spring Wind</span><span class="tr-feat">feat. 宮舞モカ</span></li>
+              <li><span class="tr-no">03</span><span class="tr-title">Lemon Lemon</span><span class="tr-feat">feat. 小春六花</span></li>
+              <li><span class="tr-no">04</span><span class="tr-title">a prayer in helix</span><span class="tr-feat">feat. 無來</span></li>
+              <li><span class="tr-no">05</span><span class="tr-title">Arcadia</span><span class="tr-feat">feat. 重音テト</span></li>
+              <li><span class="tr-no">06</span><span class="tr-title">Revolution Anthem</span><span class="tr-feat">feat. 重音テト & 宮舞モカ</span></li>
+              <li><span class="tr-no">07</span><span class="tr-title">Necrosis</span><span class="tr-feat">feat. 宮舞モカ</span></li>
+              <li><span class="tr-no">08</span><span class="tr-title">Let the World Die</span><span class="tr-feat">feat. 宮舞モカ</span></li>
+              <li><span class="tr-no">09</span><span class="tr-title">Aquarium of Stardust</span><span class="tr-feat">feat. 宮舞モカ</span></li>
+              <li><span class="tr-no">10</span><span class="tr-title">Deeper Than Blue</span><span class="tr-feat">feat. 初音ミク</span></li>
+              <li><span class="tr-no">11</span><span class="tr-title">Water Palette</span><span class="tr-feat">feat. 宮舞モカ</span></li>
+              <li><span class="tr-no">12</span><span class="tr-title">1242</span><span class="tr-feat">feat. 小春六花</span></li>
+          </ol>
+          <div class="hero-actions">
+            <a href="https://linkco.re/HRA6mmbx" target="_blank" rel="noopener" class="btn btn-fill">
+              <svg width="12" height="14" viewBox="0 0 12 14" aria-hidden="true"><path d="M1 1l10 6-10 6z"/></svg>
+              Listen / Download
+            </a>
+          </div>
+          <p class="album-note">Apple Music・Spotify・YouTube Music・LINE MUSIC・Amazon Music ほか各種配信サービスで配信中（ハイレゾ配信あり）</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== Discography Grid ===== -->
     <section class="section">
       <div class="container">
+        <div class="section-head reveal">
+          <p class="section-label">— Music Videos</p>
+          <h2 class="section-heading">楽曲動画</h2>
+        </div>
         <!-- JS が YouTube API からプレイリスト動画を取得して描画します -->
         <div class="disco-grid" id="disco-grid"></div>
 
